@@ -1,0 +1,194 @@
+1_
+#include &lt;stdio.h&gt;
+#define MAX_PRODUTOS 100
+struct Produto {
+char nome[50];
+float preco;
+};
+int main() {
+struct Produto produtos[MAX_PRODUTOS];
+int quantidade, i;
+float limite;
+printf(&quot;Digite a quantidade de produtos: &quot;);
+scanf(&quot;%d&quot;, &amp;quantidade);
+for (i = 0; i &lt; quantidade; i++) {
+printf(&quot;Digite o nome do produto %d: &quot;, i + 1);
+scanf(&quot;%s&quot;, produtos[i].nome);
+printf(&quot;Digite o preco do produto %d: &quot;, i + 1);
+scanf(&quot;%f&quot;, &amp;produtos[i].preco);
+}
+printf(&quot;Digite o valor limite: &quot;);
+scanf(&quot;%f&quot;, &amp;limite);
+int contador = 0;
+for (i = 0; i &lt; quantidade; i++) {
+if (produtos[i].preco &lt; limite) {
+contador++;
+}
+}
+printf(&quot;Quantidade de produtos abaixo de R$ %.2f: %d\n&quot;, limite, contador);
+return 0;
+}
+2_
+#include &lt;stdio.h&gt;
+#include &lt;string.h&gt;
+#define MAX_PRODUTOS 100
+struct Produto {
+int id;
+
+char nome[50];
+float preco;
+};
+int main() {
+struct Produto produtos[MAX_PRODUTOS];
+int quantidade, idBuscado, i;
+printf(&quot;Digite a quantidade de produtos: &quot;);
+scanf(&quot;%d&quot;, &amp;quantidade);
+
+for (i = 0; i &lt; quantidade; i++) {
+printf(&quot;Digite o ID do produto %d: &quot;, i + 1);
+scanf(&quot;%d&quot;, &amp;produtos[i].id);
+printf(&quot;Digite o nome do produto %d: &quot;, i + 1);
+scanf(&quot;%s&quot;, produtos[i].nome);
+printf(&quot;Digite o preco do produto %d: &quot;, i + 1);
+scanf(&quot;%f&quot;, &amp;produtos[i].preco);
+}
+
+printf(&quot;Digite o ID do produto a ser buscado: &quot;);
+scanf(&quot;%d&quot;, &amp;idBuscado);
+
+int encontrado = 0;
+for (i = 0; i &lt; quantidade; i++) {
+if (produtos[i].id == idBuscado) {
+printf(&quot;Produto encontrado:\n&quot;);
+printf(&quot;ID: %d\n&quot;, produtos[i].id);
+printf(&quot;Nome: %s\n&quot;, produtos[i].nome);
+printf(&quot;Preço: R$ %.2f\n&quot;, produtos[i].preco);
+encontrado = 1;
+break; // Sai do loop ao encontrar o produto
+}
+}
+if (!encontrado) {
+printf(&quot;Produto com ID %d não encontrado.\n&quot;, idBuscado);
+}
+return 0;
+}
+#include &lt;stdio.h&gt;
+#include &lt;string.h&gt;
+3_
+
+#define MAX_PRODUTOS 100
+struct Produto {
+int id;
+char nome[50];
+float preco;
+};
+int main() {
+struct Produto produtos[MAX_PRODUTOS];
+int quantidade, idBuscado, i;
+printf(&quot;Digite a quantidade de produtos: &quot;);
+scanf(&quot;%d&quot;, &amp;quantidade);
+for (i = 0; i &lt; quantidade; i++) {
+printf(&quot;Digite o ID do produto %d: &quot;, i + 1);
+scanf(&quot;%d&quot;, &amp;produtos[i].id);
+printf(&quot;Digite o nome do produto %d: &quot;, i + 1);
+scanf(&quot;%s&quot;, produtos[i].nome);
+printf(&quot;Digite o preco do produto %d: &quot;, i + 1);
+scanf(&quot;%f&quot;, &amp;produtos[i].preco);
+}
+printf(&quot;Digite o ID do produto a ser atualizado: &quot;);
+scanf(&quot;%d&quot;, &amp;idBuscado);
+int encontrado = 0;
+for (i = 0; i &lt; quantidade; i++) {
+if (produtos[i].id == idBuscado) {
+printf(&quot;Produto encontrado:\n&quot;);
+printf(&quot;ID: %d\n&quot;, produtos[i].id);
+printf(&quot;Nome: %s\n&quot;, produtos[i].nome);
+printf(&quot;Preco atual: R$ %.2f\n&quot;, produtos[i].preco);
+printf(&quot;Digite o novo preco: &quot;);
+scanf(&quot;%f&quot;, &amp;produtos[i].preco);
+printf(&quot;Preco atualizado com sucesso!\n&quot;);
+encontrado = 1;
+break; // Sai do loop ao encontrar e atualizar o produto
+}
+}
+if (!encontrado) {
+printf(&quot;Produto com ID %d não encontrado.\n&quot;, idBuscado);
+}
+return 0;
+
+}
+4_
+#include &lt;stdio.h&gt;
+#define MAX_PRODUTOS 100
+
+struct Produto {
+int id;
+char nome[50];
+float preco;
+};
+int main() {
+struct Produto produtos[MAX_PRODUTOS];
+int quantidade, i;
+float soma = 0.0;
+
+printf(&quot;Digite a quantidade de produtos: &quot;);
+scanf(&quot;%d&quot;, &amp;quantidade);
+for (i = 0; i &lt; quantidade; i++) {
+printf(&quot;Digite o ID do produto %d: &quot;, i + 1);
+scanf(&quot;%d&quot;, &amp;produtos[i].id);
+printf(&quot;Digite o nome do produto %d: &quot;, i + 1);
+scanf(&quot;%s&quot;, produtos[i].nome);
+printf(&quot;Digite o preco do produto %d: &quot;, i + 1);
+scanf(&quot;%f&quot;, &amp;produtos[i].preco);
+soma += produtos[i].preco; // Acumulando a soma dos preços
+}
+
+if (quantidade &gt; 0) {
+float media = soma / quantidade;
+printf(&quot;A média dos preços dos produtos é: R$ %.2f\n&quot;, media);
+} else {
+printf(&quot;Nenhum produto cadastrado.\n&quot;);
+}
+return 0;
+}
+5_
+#include &lt;stdio.h&gt;
+
+#define MAX_PRODUTOS 100
+
+struct Produto {
+int id;
+char nome[50];
+float preco;
+};
+int main() {
+struct Produto produtos[MAX_PRODUTOS];
+int quantidade, i;
+float soma = 0.0;
+
+printf(&quot;Digite a quantidade de produtos: &quot;);
+scanf(&quot;%d&quot;, &amp;quantidade);
+for (i = 0; i &lt; quantidade; i++) {
+printf(&quot;Digite o ID do produto %d: &quot;, i + 1);
+scanf(&quot;%d&quot;, &amp;produtos[i].id);
+printf(&quot;Digite o nome do produto %d: &quot;, i + 1);
+scanf(&quot;%s&quot;, produtos[i].nome);
+printf(&quot;Digite o preco do produto %d: &quot;, i + 1);
+scanf(&quot;%f&quot;, &amp;produtos[i].preco);
+soma += produtos[i].preco; // Acumulando a soma dos preços
+}
+float media = (quantidade &gt; 0) ? soma / quantidade : 0;
+printf(&quot;\nProdutos com preço acima da média (R$ %.2f):\n&quot;, media);
+int encontrou = 0; // Flag para verificar se encontrou produtos acima da média
+for (i = 0; i &lt; quantidade; i++) {
+if (produtos[i].preco &gt; media) {
+printf(&quot;ID: %d, Nome: %s, Preço: R$ %.2f\n&quot;, produtos[i].id, produtos[i].nome,
+produtos[i].preco);
+encontrou = 1;
+}
+}
+if (!encontrou) {
+printf(&quot;Nenhum produto encontrado acima da média.\n&quot;);
+}
+return 0;
+}
